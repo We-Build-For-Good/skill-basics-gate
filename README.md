@@ -27,19 +27,19 @@ It uses headless browser rendering (Playwright) to verify that an application pa
 
 ### For Claude Code
 ```bash
-git clone https://github.com/webuildforgood/skill-basics-gate.git ~/.claude/skills/basics-gate
+git clone https://github.com/We-Build-For-Good/skill-basics-gate.git ~/.claude/skills/basics-gate
 ```
 
 ### For Cursor
 ```bash
 mkdir -p .cursor/skills
-git clone https://github.com/webuildforgood/skill-basics-gate.git .cursor/skills/basics-gate
+git clone https://github.com/We-Build-For-Good/skill-basics-gate.git .cursor/skills/basics-gate
 ```
 
 ### For Antigravity / Open Agent Skills
 ```bash
 mkdir -p .agents/skills
-git clone https://github.com/webuildforgood/skill-basics-gate.git .agents/skills/basics-gate
+git clone https://github.com/We-Build-For-Good/skill-basics-gate.git .agents/skills/basics-gate
 ```
 
 ---
