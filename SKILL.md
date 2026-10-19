@@ -1,6 +1,6 @@
 ---
 name: basics-gate
-description: Automated pre-commit and pre-deploy hygiene probe. Mechanically checks that a web app or marketing site passes fundamental production hygiene on a real mobile viewport: zero console errors, zero secret leaks, zero dead links, no horizontal scroll, primary CTA visible above the fold, and strict network request allowlists to prevent rogue trackers.
+description: "Automated pre-commit and pre-deploy hygiene probe. Mechanically checks that a web app or marketing site passes fundamental production hygiene on a real mobile viewport: zero console errors, zero secret leaks, zero dead links, no horizontal scroll, primary CTA visible above the fold, and strict network request allowlists to prevent rogue trackers."
 license: MIT
 metadata:
   author: We Build for Good
