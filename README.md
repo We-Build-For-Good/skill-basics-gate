@@ -1,4 +1,4 @@
-# Basics Gate: Automated Pre-Commit Immune System
+# Basics Gate: Pre-Deploy Hygiene Checklist
 
 > **An open-source AI engineering protocol from [We Build for Good](https://webuildforgood.com)**  
 > *Catch fundamental hygiene failures before they reach production.*
@@ -7,9 +7,9 @@
 
 ## Overview
 
-`basics-gate` is an automated hygiene testing protocol for web applications and marketing sites.
+`basics-gate` is a pre-deploy hygiene checklist for web applications and marketing sites, checked in a headless browser at mobile width: no console errors, no leaked secrets, no dead links, no horizontal scrolling, and no unexpected network requests.
 
-It uses headless browser rendering (Playwright) to verify that an application passes non-negotiable production hygiene on mobile viewports: zero console errors, zero secret leaks, zero dead links, no horizontal scrolling, and zero unconsented network requests.
+This repository is the checklist, not a script. Two of the checks are automated by [skill-visual-sensory-audit](https://github.com/We-Build-For-Good/skill-visual-sensory-audit); [SKILL.md](SKILL.md) shows how to run the rest.
 
 ---
 
@@ -17,9 +17,10 @@ It uses headless browser rendering (Playwright) to verify that an application pa
 
 * **Zero Console Errors**: Traps runtime exceptions and unhandled promise rejections.
 * **No Horizontal Overflow**: Validates responsive mobile fit at 375px width.
-* **CTA Above the Fold**: Guarantees the primary action is visible without scrolling.
+* **CTA Above the Fold**: The primary action is visible without scrolling.
 * **Network Allowlist**: Verifies that no rogue third-party analytics or CDNs fire on cold load.
-* **Secret Leak Scan**: Blocks client bundles containing exposed API keys or environment secrets.
+* **Secret Leak Scan**: Client bundles contain no exposed API keys or environment secrets.
+* **Dead Link Sweep**: Every internal link returns a 2xx response.
 
 ---
 
