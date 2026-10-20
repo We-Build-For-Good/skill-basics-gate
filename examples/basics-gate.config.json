@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "id": "example-site",
+      "base": "https://www.example.com/",
+      "kind": "site",
+      "pages": ["", "pricing"],
+      "primary": "a:has-text('Get started')",
+      "allowHosts": ["www.example.com", "fonts.googleapis.com", "fonts.gstatic.com"],
+      "sitemap": true,
+      "coreLoop": [{ "goto": "" }, { "click": "a:has-text('Get started')" }, { "expect": "h1" }],
+      "coreLoopPartial": "sign-up would create a real account, so the loop stops at the sign-up page"
+    },
+    {
+      "id": "example-app",
+      "base": "https://app.example.com/",
+      "kind": "app",
+      "pages": [""],
+      "primary": "button#start",
+      "mustSee": ["#next-step"],
+      "allowHosts": ["app.example.com"],
+      "appShell": true,
+      "sitemap": false,
+      "coreLoop": [{ "goto": "" }, { "click": "button#start" }, { "expectText": "Step 1" }]
+    }
+  ]
+}

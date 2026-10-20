@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bad fixture</title>
+<link rel="icon" href="data:,">
+<style>
+body { margin: 0; font: 16px system-ui; }
+.wide { width: 900px; height: 20px; background: #eee; }
+img.squashed { width: 200px; height: 100px; }
+</style>
+</head>
+<body>
+<h1>Bad fixture</h1>
+<div class="wide"></div>
+<img class="squashed" alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23c00'/%3E%3C/svg%3E">
+<a class="cta" href="/">Start</a>
+<script>console.error('fixture error');</script>
+</body>
+</html>

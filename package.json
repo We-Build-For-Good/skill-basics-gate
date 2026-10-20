@@ -1,0 +1,26 @@
+{
+  "name": "@webuildforgood/skill-basics-gate",
+  "version": "2.0.0",
+  "description": "Loads each page in real Chromium and WebKit at phone and desktop sizes and checks the basics: fit, visible call to action, no horizontal scroll, no console errors or unexpected hosts, served SEO, larger text, distorted media, tracking links and a core loop.",
+  "type": "module",
+  "bin": {
+    "wb4g-basics-gate": "bin/basics-gate.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/basics-gate.test.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.60.0"
+  },
+  "peerDependencies": {
+    "lighthouse": ">=12"
+  },
+  "peerDependenciesMeta": {
+    "lighthouse": { "optional": true }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "author": "We Build for Good",
+  "license": "MIT"
+}

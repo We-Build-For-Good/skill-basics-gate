@@ -1,34 +1,47 @@
-# Basics Gate: Pre-Deploy Hygiene Checklist
+# Basics Gate
 
-> **An open-source AI engineering protocol from [We Build for Good](https://webuildforgood.com)**  
-> *Catch fundamental hygiene failures before they reach production.*
+> **An open-source AI engineering tool from [We Build for Good](https://webuildforgood.com)**
+> *Catch the basics a visitor hits first, before they reach production.*
 
 ---
 
 ## Overview
 
-`basics-gate` is a pre-deploy hygiene checklist for web applications and marketing sites, checked in a headless browser at mobile width: no console errors, no leaked secrets, no dead links, no horizontal scrolling, and no unexpected network requests.
+`basics-gate` loads every page you configure in real Chromium and WebKit (the engine of iPhone Safari) at phone and desktop sizes, and checks 17 basics: content wider than the screen, the main button below the fold or covered, console errors, failed requests, calls to hosts you did not list, served SEO tags, text that breaks at 120% size, squashed images, tracking links that 404, a core loop that does not work, and page speed.
 
-This repository is the checklist, not a script. Two of the checks are automated by [skill-visual-sensory-audit](https://github.com/We-Build-For-Good/skill-visual-sensory-audit); [SKILL.md](SKILL.md) shows how to run the rest.
+It is read-only: it loads and clicks through pages, and never submits a form, logs in or pays. Every check reports PASS, FAIL, WARN, SKIP (does not apply) or NOT_RUN (could not be checked). A check that did not run is never shown as a pass, and `--strict` makes it block.
+
+The full list of checks, the config format and what the gate does not cover are in [SKILL.md](SKILL.md).
+
+## Quick start
+
+```bash
+git clone https://github.com/We-Build-For-Good/skill-basics-gate.git
+cd skill-basics-gate
+npm install
+npx playwright install chromium webkit
+cp examples/basics-gate.config.json basics-gate.config.json   # then put your own site in
+node bin/basics-gate.mjs --skip-perf
+```
+
+Exit codes: 0 no P1 failures, 1 blocked, 2 bad options, config or missing browsers. Page speed (check 17) needs `npm install lighthouse`; without it the check is NOT_RUN.
+
+## Tests
+
+```bash
+npm test
+```
+
+The suite includes an end-to-end run against two local fixture sites: one that passes, and one that must fail the sideways-scroll, console-error, text-size and squashed-image checks. It is skipped if the Playwright browsers are not installed.
 
 ---
 
-## The Mechanical Checks
-
-* **Zero Console Errors**: Traps runtime exceptions and unhandled promise rejections.
-* **No Horizontal Overflow**: Validates responsive mobile fit at 375px width.
-* **CTA Above the Fold**: The primary action is visible without scrolling.
-* **Network Allowlist**: Verifies that no rogue third-party analytics or CDNs fire on cold load.
-* **Secret Leak Scan**: Client bundles contain no exposed API keys or environment secrets.
-* **Dead Link Sweep**: Every internal link returns a 2xx response.
-
----
-
-## Installation
+## Installation as an agent skill
 
 ### For Claude Code
 ```bash
 git clone https://github.com/We-Build-For-Good/skill-basics-gate.git ~/.claude/skills/basics-gate
+cd ~/.claude/skills/basics-gate && npm install && npx playwright install chromium webkit
 ```
 
 ### For Cursor
